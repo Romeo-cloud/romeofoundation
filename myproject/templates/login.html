@@ -1,0 +1,62 @@
+<h1>Login Now</h1>
+
+ <style>
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            
+        }
+        p {
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+
+<form action="login" method="POST">
+    {% csrf_token %}
+    <p>Username</p>
+    <input type="text" name="username"/>
+    <p>Password</p>
+    <input type="password" name = "password"/><br>
+    <input type="submit"/>
+</form>
